@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Campus Service Desk</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div>
+    <h1>Smart Campus</h1>
+    <p>Complaint & Service Management System</p>
+  </div>
+  <span class="status-dot">● Online</span>
+</header>
+
+<main>
+  <section class="hero">
+    <div>
+      <h2>Campus issues, tracked from report to resolution.</h2>
+      <p>Students can submit service requests and administrators can monitor and update them.</p>
+    </div>
+  </section>
+
+  <section class="stats" id="stats"></section>
+
+  <div class="grid">
+    <section class="card">
+      <h2>Submit a Complaint</h2>
+      <form id="complaintForm">
+        <div class="row">
+          <label>Student Name<input name="student_name" required placeholder="Your name"></label>
+          <label>Student ID<input name="student_id" required placeholder="e.g. RA2311001"></label>
+        </div>
+
+        <div class="row">
+          <label>Category
+            <select name="category" required>
+              <option value="">Select</option>
+              <option>Network</option>
+              <option>Electrical</option>
+              <option>Classroom</option>
+              <option>Laboratory</option>
+              <option>Hostel</option>
+              <option>Cleaning</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label>Location<input name="location" required placeholder="Block / Room"></label>
+        </div>
+
+        <label>Complaint Title<input name="title" required placeholder="Short description"></label>
+        <label>Description<textarea name="description" required placeholder="Explain the issue"></textarea></label>
+
+        <label>Priority
+          <select name="priority">
+            <option>Low</option>
+            <option selected>Medium</option>
+            <option>High</option>
+          </select>
+        </label>
+
+        <button type="submit">Submit Complaint</button>
+        <p id="message"></p>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="section-head">
+        <h2>Admin Dashboard</h2>
+        <button class="secondary" onclick="loadComplaints()">Refresh</button>
+      </div>
+      <div id="complaints"></div>
+    </section>
+  </div>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
